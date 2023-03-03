@@ -1,13 +1,19 @@
-# HireHelper
-ระบบหลังบ้านที่จะช่วยจัดการข้อมูลของทีมงานสรรหาและทรัพยากรบุคคลเพื่อการทำงานที่ง่ายขึ้น ใช้ภาษา Python, Java, JavaScript, HTML 
-### Tools
-- Java Spring Framework v3.0.2 (Business Logic)
-- Restful API
+<p align="center">
+<img src="https://cdn-icons-png.flaticon.com/512/1567/1567064.png" width="150" height="150">
+</p>
+
+<h3 align="center">HireHelper</h3>
+<br>
+<p align="center">ระบบหลังบ้านที่จะช่วยจัดการข้อมูลของทีมงานสรรหาและทรัพยากรบุคคลเพื่อการทำงานที่ง่ายขึ้น ใช้ภาษา Python, Java, JavaScript, HTML </p>
+<br>
+
+## Tools
+- Java Spring Boot Framework 
 - JDBC (MySQL DBMS)
-- Bootstrap 4 HTML5 (Frontend)
-- Normalize.css Polyfill
+- Bootstrap
+- Normalize.css
 - Pandas (Parser and Conversion)
-- JavaScript AJAX (Parser) -- Node.js
+- JavaScript
 - Python OCR Service
 
 ## Current Work-in-Progress Features 
