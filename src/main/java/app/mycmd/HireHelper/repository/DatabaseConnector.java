@@ -3,18 +3,20 @@ package app.mycmd.HireHelper.repository;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 class DatabaseConnector {
     
     //will change to spring boot jdbc.
-    String url = "jdbc:mysql://127.0.0.1/+#+#+#";
+    String url = "jdbc:mysql://127.0.0.1/hirehelper?user=hirehelper&password=13869";
     
-    public boolean isConnect(){
+    @RequestMapping("/check-db-status")
+    public String ConnectionStatus(){
         try{
             Connection cn = DriverManager.getConnection(url); 
+            return "Connection status = active";
         }catch(SQLException se) { 
-            
+            return "ERROR: There is an error connecting to the database.";
         }
-        return false;
     }
 }
