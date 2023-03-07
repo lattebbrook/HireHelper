@@ -1,5 +1,6 @@
 package app.mycmd.HireHelper.config;
 
+import app.mycmd.HireHelper.controller.AuthController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,29 +16,30 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
     
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-			.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/index", "/home").permitAll()
-				.anyRequest().authenticated()
-			)
-			.formLogin((form) -> form
-				.loginPage("/login")
-				.permitAll()
-			)
-			.logout((logout) -> logout.permitAll());
-
+    AuthController ac = new AuthController();
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((requests) -> requests
+            .requestMatchers("/", "/index", "/home").permitAll()
+            .anyRequest().authenticated()
+                )
+            .formLogin((form) -> form
+            .loginPage("/login")
+            .permitAll()
+            )
+            .logout((logout) -> logout.permitAll());
 		return http.build();
 	}
         
 	@Bean
+        @Deprecated
 	public UserDetailsService userDetailsService() {
             
             UserDetails user =
 		User.withDefaultPasswordEncoder()
-                    .username()
-                    .password()
+                    .password(ac.getKey())
                     .roles("USER")
                     .build();
 		return new InMemoryUserDetailsManager(user);
