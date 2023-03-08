@@ -1,13 +1,20 @@
 package app.mycmd.HireHelper.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class HomeController {
 
+    @RequestMapping("/")
+    public ModelAndView welcome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index.html");
+        return modelAndView;
+    }  
+    
+    /*
     @GetMapping(value = {"/" , "index", "index.html", "home", "main"})
     public String redirectHome(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
@@ -15,7 +22,7 @@ public class HomeController {
             return "index.html";
         }
         return "login.html";
-    }
+    } */
     
 }
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>HireHelper | ซอฟต์แวร์จัดการสรรหาบุคคล</title>
+    <!-- Link to Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom Style -->
+    <style>
+		body, html {
+      font-family: SFThonburi-Regular, sans-serif;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+            background-color: #eeeeee;
+		}
+
+		.main-content {
+			margin-left: 200px;
+			padding: 20px;
+		}
+        @font-face {
+            font-family: SFThonburi-Regular, sans-serif;
+            src: url(font/SFThonburi-Regular.ttf);
+        }
+        .nav-font-decoration {
+            color: white;
+        }
+        /* Custom styling for the navigation bar */
+		.navbar {
+			background-color: #625385;
+			color: white;
+		}
+        .content-wrapper {
+        margin-left: 150px;
+        padding: 20px;
+        }
+
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 250px;
+			height: 100%;
+			background-color: #f7f7f7;
+			padding: 20px;
+		}
+        .font-space {
+            margin-left: 250px;
+        }
+        .card {
+            margin: 5em 10rem 10rem 10rem;
+            min-width: 500px;
+        }
+        .container {
+            margin: 2rem 2rem 2rem 2rem;
+        }
+        .top-nav-side-split {
+            margin-top: 60px;
+        }
+        
+    </style>
+</head>
+<!-- Side Bar -->
+<header>
+  <nav id="sidebarMenu" class="top-nav-side-split d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-house" viewBox="0 0 16 16" style="margin-right: 3px;" >
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+              <b style="padding: 1rem; color: rgb(49, 49, 49)">Home</b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tools.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-pencil-square" viewBox="0 0 16 16" style="margin-right: 3px;">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+              <b style="padding: 1rem; color: rgb(49, 49, 49)">Tools</b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reports.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-bar-chart-line" viewBox="0 0 16 16" style="margin-right: 3px;">
+                  <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+                </svg>
+              <b style="padding: 1rem; color: rgb(49, 49, 49)">Reports</b>
+            </a>
+          </li>
+        </ul>
+        </div>
+    </nav>
+      
+    <!--Main Navigation-->
+    <nav class="navbar" style="background-color: #184e3e;" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="/resources/logo.svg" alt="Logo" width="52" height="34" class="d-inline-block align-text-top nav-font-decoration">
+            HireHelper | ซอฟต์แวร์จัดการแผนกสรรหา
+          </a>
+        </div>
+      </nav>
+    </header>
+<body>
+
+  
+  <div class="content-wrapper">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+<!-- Side Bar Above 
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title"><b>เข้าสู่ระบบเพื่อใช้งาน</b></h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="email">อีเมล</label>
+              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted" ><i>เราจะไม่เปิดเผยอีเมลและรหัสผ่านให้กับผู้ใด</i></small>
+            </div>
+            <div class="form-group">
+              <label for="password" style="margin-top: 10px;">รหัสผ่าน</label>
+              <input type="password" class="form-control"  name="password" id="password" id="password" placeholder="Password" >
+            </div>
+            <div class="form-check" style="margin-top: 10px;">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">จดจำฉันไว้ครั้งต่อไป</label>
+            </div>
+          </form>
+          <a href="#" class="btn btn-primary" style="margin-top: 10px;" type="submit" id="loginBtn" >เข้าสู่ระบบ</a>
+          <a href="#" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">ลงทะเบียน</a>
+          <p class="mt-4 mb-3 text-muted">© MIT License 2023 HireHelper Developed by Tanawat Boonmak</p>
+        </div>
+      </div>
+	 Link to Bootstrap JS -->
+	<script src="js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

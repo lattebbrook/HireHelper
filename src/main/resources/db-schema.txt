@@ -1,0 +1,6 @@
+create database HireHelper;
+use Hirehelper;
+create table API(id int PRIMARY KEY AUTO_INCREMENT NOT NULL, apikey varchar(80) NOT NULL);
+insert into API(apikey) values('134679abc');
+create user admin_hirehelper identified with mysql_native_password by 'admbcl3823';
+grant all on API.* to admin_hirehelper;

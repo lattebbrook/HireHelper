@@ -1,26 +1,36 @@
 package app.mycmd.HireHelper.repository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class DatabaseConnector {
+
+    private String dbname;
+    private String username;
+    private String password;
     
-    //will change to spring boot jdbc.
-    private String url = "jdbc:mysql://127.0.0.1/hirehelper?user=hirehelper&password=13869";
-    
-    @RequestMapping("/check-db-status")
-    public String ConnectionStatus(){
-        try{
-            Connection cn = DriverManager.getConnection(url); 
-            return "Connection status = active";
-        }catch(SQLException se) { 
-            return "ERROR: There is an error connecting to the database.";
-        }
+    public void setdbname(String value){
+        this.dbname = value;
     }
     
-    public String getStringURL(){
-        return this.url;
+    public void setUsername(String value){
+        this.username = value;
     }
+    
+    public void setPassword(String value){
+        this.password = value;
+    }
+
+    public String getdbname(){
+        return this.dbname;
+    }
+    
+    public String getUsername(){
+        return this.username;
+    }
+    
+    public String getPassword(){
+        return this.password;
+    } 
+    
 }
