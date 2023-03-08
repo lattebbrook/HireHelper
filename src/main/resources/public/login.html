@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>HireHelper | ซอฟต์แวร์จัดการสรรหาบุคคล</title>
+    <!-- Link to Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom Style -->
+    <style>
+		body, html {
+      font-family: SFThonburi-Regular, sans-serif;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+            background-color: #eeeeee;
+		}
+
+		.main-content {
+			margin-left: 200px;
+			padding: 20px;
+		}
+        @font-face {
+            font-family: SFThonburi-Regular, sans-serif;
+            src: url(font/SFThonburi-Regular.ttf);
+        }
+        .nav-font-decoration {
+            color: white;
+        }
+        /* Custom styling for the navigation bar */
+		.navbar {
+			background-color: #625385;
+			color: white;
+		}
+        .content-wrapper {
+        margin-left: 150px;
+        padding: 20px;
+        }
+
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 250px;
+			height: 100%;
+			background-color: #f7f7f7;
+			padding: 20px;
+		}
+        .font-space {
+            margin-left: 250px;
+        }
+        .card {
+            margin: 5em 10rem 10rem 10rem;
+            min-width: 500px;
+        }
+        .container {
+            margin: 2rem 2rem 2rem 2rem;
+        }
+        
+    </style>
+</head>
+<!-- Side Bar -->
+<header>
+      
+    <!--Main Navigation-->
+    <nav class="navbar" style="background-color: #184e3e;" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="/resources/logo.svg" alt="Logo" width="52" height="34" class="d-inline-block align-text-top nav-font-decoration">
+            HireHelper | ซอฟต์แวร์จัดการแผนกสรรหา
+          </a>
+        </div>
+      </nav>
+    </header>
+<body>
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title"><b>เข้าสู่ระบบเพื่อใช้งาน</b></h5>
+        </div>
+        <div class="p-3 mb-2 bg-warning text-dark">
+        <div th:if="${param.error}">
+            รหัส Token ไม่ถูกต้อง (ตรวจสอบดูอีกครั้งหรือติดต่อ tanawat.brook@icloud.com หากยังไม่สำเร็จ)
+        </div>
+        <div th:if="${param.logout}">
+            คุณออกจากระบบหรือ session หมดอายุ กรุณาเข้าสู่ระบบอีกครั้ง
+        </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                <label for="token" style="margin-bottom: 10px;">Enter the correct token to process:</label>
+                <input type="password"name="password" class="form-control" placeholder="Input API Token" style="margin-bottom: 20px;">
+                </div>
+            </form>
+          <a href="#" class="btn btn-primary" style="margin-top: 10px;" type="submit" id="loginBtn" >เข้าสู่ระบบ</a>
+          <a href="#" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px;">ลงทะเบียน</a>
+          <p class="mt-4 mb-3 text-muted">© MIT License 2023 HireHelper Developed by Tanawat Boonmak</p>
+        </div>
+      </div>
+
+	<script src="js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
